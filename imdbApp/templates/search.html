@@ -1,0 +1,75 @@
+{%extends 'base.html'%}
+{% load static%}
+{% block content %}
+
+{{block.super}}
+<!-- <div class='container' style='margin-top:80px;'>
+    <h2><b>{{search_term|title}}</b></h2>
+    <small>Found {{ movies|length}} movies</small><hr><br>
+</div>
+
+
+<div class="container wrap">
+    <div class="row">
+    {% for movie in movies %}
+         <div class="col-xs-6 col-sm-6  col-md-4 col-lg-3">
+                 <div class="portfolio-wrap ">
+                     <div class="portfolio-wrap hovereffect">
+                         <a class="img-overlay" data-toggle="modal" data-target="#{{movie.id}}" style="width:100%">
+                             <img src="{{movie.image.url}}" width='100%' href="" class="image" alt="Image" >
+                             <div class="overlay">
+                                 <h4>{{movie.title}}</h4>
+                             </div>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+    {% endfor %}
+    </div>
+    
+    {% for movie in movies %}
+        <div class="modal fade" id="{{movie.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">{{movie.title|title}}</h5>
+                        <small><i class="fas fa-map-marker-alt"></i><span> {{movie.movie_language}}</span></small>
+                        <small><i class="fas fa-map-marker-alt"></i><span> {{movie.movie_status}}</span></small>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                                <div><img id="img{{image.id}}" src="{{image.image.url}}" class="img-thumbnail" alt="Image" width='100%'></div><br>
+                                <p class="desc">{{movie.description}}</p>
+                                <p>Category: {{movie.movie_category.name}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div> -->
+
+<main class="content">
+    {% for movie in movies %}
+    <section class="centered">
+        <h3>Search for: {{movie.title|title}}</h3>
+        <div class="movies">
+            <div class="mov">
+                <a href="single.html">
+                    <img src="{{image.image.url}}">
+                    <h2 class="movietitle">{{movie.title|title}}</h2>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
+
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+
+{%extends 'base.html'%}
+{% load static%}
+{% block content %}
+
+<main class="content">
+    
+    <section class="panel">
+       
+        <div class="recentslider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <h2>{{movie.movie_status}}</h2>
+                    {% for movie in movies %}
+                    <div class="swiper-slide"><a href="/movie/{{movie.id}}"><img src="{{ movie.image.url }}"><h3 class="hometitle">{{movie.title}}</h3></a></div>
+                    {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %} 

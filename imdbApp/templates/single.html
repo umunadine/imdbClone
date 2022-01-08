@@ -1,0 +1,73 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{{movie.title}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+
+
+	<!-- Demo styles -->
+	<style>
+
+
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+        {% include "navbar.html" %}
+		<main class="content">
+			<div class="single">
+				<section class="trailer">
+					<h3>Trailer</h3>
+					<div class="trailer_frame">
+						<iframe width="560" height="315" src="{{movie.trailer}}" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</section>
+
+				<section class="movie">
+					<img src="{{movie.image.url}}">
+					<ul>
+						<li>{{movie.title}}</li>
+						<li>{{movie.description}}</li>
+						<li><a href="#">{{movie.movie_category}}</a>
+
+						<li><a href="">{{movie.cast}}</a>
+						<li>{{movie.views_count}} Views </li>
+					</ul>
+				</section>
+
+				<section class="related">
+					<h3>Related movies</h3>
+					{% for movie in movies %}
+					<div class="relatemovie">
+						<a href="#"><img src="{{movie.image.url}}"></a>
+						<a href="#"><span class="relatedname">{{movie.title|title}</span></a>
+					</div>
+                   {% endfor %} 
+				</section>
+
+			</div>
+		</main>
+
+		<footer class="footer">
+			<div class="copyright"><p>Copyright &copy 2017 www.focusoncode.com</p></div>
+			
+
+		</footer>
+
+	</div>
+</body>
+</html>
+
+
+
+

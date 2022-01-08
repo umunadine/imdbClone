@@ -1,0 +1,73 @@
+{%extends 'base.html'%}
+{% load static%}
+{% block content %}
+
+{{block.super}}
+<!-- <div class="container wrap" style='margin-top:80px;'>
+    <h3><i class="fas fa-map-marker-alt"></i> {{movie.title}}</h3><hr style='background-color:rgb(117, 115, 115);height: 1px;border: none;'><br>
+    <div class="row">
+    {% for movie in movies %}
+         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                 <div class="portfolio-wrap ">
+                     <div class="portfolio-wrap hovereffect">
+                         <a class="img-overlay" data-toggle="modal" data-target="#{{movie.id}}" style="width:100%">
+                             <img src="{{movie.image.url}}" href="" class="image" alt="Image" >
+                             <div class="overlay">
+                                 <h4>{{movie.title}}</h4>
+                             </div>
+                         </a>
+                     </div>
+                 </div>
+             </div>
+    {% empty %}
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <img src="{% static 'images/sorry.png' %}" alt="" class = "oops">
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6">
+            <h2 class="text-center"> Sorry no movies for {{movie.movie_category.name}}. Movies are comming soon.</h2>
+        </div>
+    </div>
+    {% endfor %}
+    {% for movie in movies %}
+        <div class="modal fade" id="{{movie.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">{{movie.title|title}}</h5>
+                        <small><i class="fas fa-map-marker-alt"></i><span> {{movie.movie_category}}</span></small>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                                <div><img id="img{{movie.id}}" src="{{movie.image.url}}" class="img-thumbnail" alt="Image" width='100%'></div><br>
+                                <p class="desc">{{movie.description}}</p>
+                                <p>Category: {{movie.movie_category.name}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" value="#{{ movie.image.url }}" onclick="copyURL(this.value)">Copy link</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div> -->
+
+<main class="content">
+    {% for movie in movies %}
+    <section class="centered">
+        <h3>{{movie.movie_category.name}}</h3>
+        <div class="movies">
+            <div class="mov">
+                <a href="#">
+                    <img src="{{movie.image.url}}">
+                    <h2 class="movietitle">{{movie.title|title}}</h2>
+                </a>
+            </div>
+            {% endfor %} 
+        </section>
+{% endblock %}
